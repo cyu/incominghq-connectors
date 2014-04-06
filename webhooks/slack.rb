@@ -1,4 +1,4 @@
-api_version "1"
+version "1"
 
 info do
   title "Slack"
