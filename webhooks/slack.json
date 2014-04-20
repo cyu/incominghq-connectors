@@ -1,0 +1,74 @@
+{
+  "version": "0.0.1",
+
+  "webhook_version": "0.0.0",
+  "maintainer": "Calvin Yu <me@sourcebender.com>",
+
+  "info": {
+    "title": "Slack",
+    "url": "http://slack.com",
+    "description": "Slack brings all your communication together in one place."
+  },
+
+  "webhooks": [
+    {
+      "method": "POST",
+      "nickname": "on_message",
+
+      "summary": "Outgoing WebHooks",
+      "notes": "Get data out of Slack in real-time.",
+
+      "parameters": [
+        {
+          "name": "token",
+          "type": "string",
+          "paramType": "form"
+        },
+        {
+          "name": "team_id",
+          "type": "string",
+          "paramType": "form"
+        },
+        {
+          "name": "channel_id",
+          "type": "string",
+          "paramType": "form"
+        },
+        {
+          "name": "channel_name",
+          "type": "string",
+          "paramType": "form"
+        },
+        {
+          "name": "timestamp",
+          "type": "unix-timestamp",
+          "paramType": "form"
+        },
+        {
+          "name": "user_id",
+          "type": "string",
+          "paramType": "form"
+        },
+        {
+          "name": "user_name",
+          "type": "string",
+          "paramType": "form"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "paramType": "form"
+        },
+        {
+          "name": "trigger_word",
+          "type": "string",
+          "paramType": "form"
+        }
+      ],
+
+      "response": {
+        "body": ""
+      }
+    }
+  ]
+}
