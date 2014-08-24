@@ -1,0 +1,78 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "5",
+
+  "basePath": "https://www.pivotaltracker.com/services/v5",
+  "resourcePath": "/projects",
+
+  "produces": ["application/json"],
+
+  "apis": [
+    {
+      "path": "{projectId}/stories",
+      "description": "Operations on stories",
+      "operations": [
+        {
+          "method": "post",
+          "nickname": "createStory",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "projectId",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "paramType": "body",
+              "name": "body",
+              "required": true,
+              "type": "NewStory"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "models": {
+    "NewStory": {
+      "id": "NewStory",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "cl_numbers": { "type": "string" },
+
+        "current_state": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "delivered",
+            "finished",
+            "started",
+            "rejected",
+            "unstarted",
+            "unscheduled"
+          ]
+        },
+        "external_id": { "type": "string" },
+        "deadline": { "type": "string" },
+        "description": { "type": "string" },
+        "estimate": { "type": "string" },
+        "integration_id": { "type": "string" },
+        "planned_iteration_number": { "type": "string" },
+        "requested_by_id": { "type": "string" },
+        "accepted_at": { "type": "string" },
+        "before_id": { "type": "string" },
+        "created_at": { "type": "string" },
+        "after_id": { "type": "string" },
+        "name": { "type": "string" },
+        "story_type": {
+          "type": "string",
+          "enum": [ "feature", "bug", "chore", "release" ]
+        }
+      }
+    }
+  }
+
+}
