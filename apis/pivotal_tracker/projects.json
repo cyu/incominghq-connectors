@@ -73,6 +73,14 @@
         }
       }
     }
+  },
+
+  "authorizations": {
+    "apiToken": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "X-TrackerToken"
+    }
   }
 
 }

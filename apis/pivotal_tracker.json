@@ -13,14 +13,6 @@
       "path": "pivotal_tracker/projects.json",
       "description": "Operation on projects"
     }
-  ],
-
-  "authorizations": {
-    "apiToken": {
-      "type": "apiKey",
-      "passAs": "header",
-      "keyname": "X-TrackerToken"
-    }
-  }
+  ]
 
 }
