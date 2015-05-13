@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+
+  "webhook_version": "0.0.0",
+  "maintainer": "Calvin Yu <me@sourcebender.com>",
+
+  "info": {
+    "title": "Basic URL",
+    "url": "http://incominghq.com",
+    "description": "A basic URL webhook"
+  },
+
+  "webhooks": [
+    {
+      "method": "GET",
+      "nickname": "on_url",
+      "parameters": [],
+      "response": { "body": "" }
+    }
+  ]
+}
