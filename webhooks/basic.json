@@ -14,6 +14,7 @@
     {
       "method": "GET",
       "nickname": "on_url",
+      "summary": "Basic URL",
       "parameters": [],
       "response": { "body": "" }
     }
