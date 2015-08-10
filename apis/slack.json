@@ -3,106 +3,58 @@
 
   "info": {
     "title": "Slack",
-    "description": "Slack Incoming Webhook",
+    "description": "Slack API",
     "version": "1"
   },
 
-  "host": "hooks.slack.com",
+  "host": "slack.com",
 
-  "basePath": "/services",
+  "basePath": "/api",
 
   "schemes": ["https"],
 
   "produces": ["application/json"],
 
   "paths": {
-    "/{path}": {
-      "post": {
-        "summary": "Post message into Slack",
-        "operationId": "postMessage",
+    "/rtm.start": {
+      "get": {
+        "summary": "Start a Real Time Messaging API session",
+        "operationId": "startRTM",
         "parameters": [{
-          "name": "path",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        }, {
-          "name": "payload",
-          "in": "body",
-          "required": true,
-          "schema": "Payload"
+          "name": "token",
+          "in": "query",
+          "required": true
         }]
       }
     }
   },
 
-  "definitions": {
-    "Payload": {
-      "title": "Payload",
-      "type": "object",
-      "required": ["text"],
-      "properties": {
-        "text": {
-          "type": "string"
-        },
-        "username": {
-          "type": "string"
-        },
-        "icon_url": {
-          "type": "string"
-        },
-        "icon_emoji": {
-          "type": "string"
-        },
-        "channel": {
-          "type": "string"
-        },
-        "attachments": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Attachment"
-          }
-        }
-      }
-    },
-    "Attachment": {
-      "title": "Attachment",
-      "type": "object",
-      "required": ["fallback"],
-      "properties": {
-        "fallback": {
-          "type": "string"
-        },
-        "text": {
-          "type": "string"
-        },
-        "pretext": {
-          "type": "string"
-        },
-        "color": {
-          "type": "string"
-        },
-        "fields": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AttachmentField"
-          }
-        }
-      }
-    },
-    "AttachmentField": {
-      "title": "Attachment Field",
-      "type": "object",
-      "required": ["title"],
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string"
-        },
-        "short": {
-          "type": "boolean"
-        }
+  "securityDefinitions": {
+    "oauth2": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "in": "query",
+      "name": "token",
+      "authorizationUrl": "https://slack.com/oauth/authorize",
+      "tokenUrl": "https://slack.com/api/oauth.access",
+      "scopes": {
+        "identify": "Allows applications to confirm your identity.",
+        "read": "Allows applications to read any messages and state that the user can see.",
+        "post": "Allows applications to write messages and create content on behalf of the user.",
+        "client": "Allows applications to connect to slack as a client, and post messages on behalf of the user.",
+        "admin": "Allows applications to perform administrative actions, requires the authed user is an admin."
+      },
+      "x-authorizeParameters": [
+        "team"
+      ]
+    }
+  },
+
+  "paths": {
+    "/auth.test": {
+      "get": {
+        "summary": "Checks authentication & identity.",
+        "operationId": "testAuth"
       }
     }
   }
