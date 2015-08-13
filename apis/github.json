@@ -51,6 +51,50 @@
         "summary": "Get the authenticated user",
         "operationId": "getUser"
       }
+    },
+    "/user/repos": {
+      "get": {
+        "summary": "List repositories that are accessible to the authenticated user.",
+        "operationId": "userRepos",
+        "parameters": [{
+          "name": "visibility",
+          "in": "query",
+          "enum": [
+            "all",
+            "public",
+            "private"
+          ]
+        },{
+          "name": "affiliation",
+          "in": "query"
+        },{
+          "name": "type",
+          "in": "query",
+          "enum": [
+            "all",
+            "owner",
+            "public",
+            "private",
+            "member"
+          ]
+        },{
+          "name": "sort",
+          "in": "query",
+          "enum": [
+             "created",
+             "updated",
+             "pushed",
+             "full_name"
+          ]
+        },{
+          "name": "direction",
+          "in": "query",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        }]
+      }
     }
   }
 }
