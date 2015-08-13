@@ -3,7 +3,7 @@
 
   "info": {
     "title": "Github",
-    "version":  "3"
+    "version": "3"
   },
 
   "host": "api.github.com",
@@ -64,10 +64,10 @@
             "public",
             "private"
           ]
-        },{
+        }, {
           "name": "affiliation",
           "in": "query"
-        },{
+        }, {
           "name": "type",
           "in": "query",
           "enum": [
@@ -77,21 +77,48 @@
             "private",
             "member"
           ]
-        },{
+        }, {
           "name": "sort",
           "in": "query",
           "enum": [
-             "created",
-             "updated",
-             "pushed",
-             "full_name"
+            "created",
+            "updated",
+            "pushed",
+            "full_name"
           ]
-        },{
+        }, {
           "name": "direction",
           "in": "query",
           "enum": [
             "asc",
             "desc"
+          ]
+        }]
+      }
+    },
+    "/user/orgs": {
+      "get": {
+        "summary": "List organizations for the authenticated user",
+        "operationId": "getUserOrgs"
+      }
+    },
+    "/orgs/{org}/repos": {
+      "get": {
+        "summary": "List repositories for the specified org",
+        "operationId": "getOrgRepos",
+        "parameters": [{
+          "name": "org",
+          "in": "path"
+        }, {
+          "name": "type",
+          "in": "query",
+          "enum": [
+            "all",
+            "public",
+            "private",
+            "forks",
+            "sources",
+            "member"
           ]
         }]
       }
