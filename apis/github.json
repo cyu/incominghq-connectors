@@ -55,7 +55,7 @@
     "/user/repos": {
       "get": {
         "summary": "List repositories that are accessible to the authenticated user.",
-        "operationId": "userRepos",
+        "operationId": "getUserRepos",
         "parameters": [{
           "name": "visibility",
           "in": "query",
