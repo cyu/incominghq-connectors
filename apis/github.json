@@ -112,7 +112,7 @@
         "parameters": [{
           "name": "org",
           "in": "path",
-          "required", true
+          "required": true
         }, {
           "name": "type",
           "in": "query",
