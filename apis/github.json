@@ -127,6 +127,25 @@
         }]
       }
     },
+    "/repos/{owner}/{repo}/issues/{number}": {
+      "get": {
+        "summary": "Get a single issue",
+        "operationId": "getIssue",
+        "parameters": [{
+          "name": "owner",
+          "in": "path",
+          "required": true
+        },{
+          "name": "repo",
+          "in": "path",
+          "required": true
+        },{
+          "name": "number",
+          "in": "path",
+          "required": true
+        }]
+      }
+    },
     "/applications/{clientId}/tokens/{accessToken}": {
       "get": {
         "operationId": "checkAuthorization",
