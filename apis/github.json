@@ -48,6 +48,10 @@
     }
   },
 
+  "security": {
+    "oauth2": []
+  },
+
   "paths": {
     "/user": {
       "get": {
@@ -102,7 +106,11 @@
     "/user/orgs": {
       "get": {
         "summary": "List organizations for the authenticated user",
-        "operationId": "getUserOrgs"
+        "operationId": "getUserOrgs",
+        "security": [
+          "user",
+          "read:org"
+        ]
       }
     },
     "/orgs/{org}/repos": {
