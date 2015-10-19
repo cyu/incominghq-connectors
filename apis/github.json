@@ -59,6 +59,15 @@
         "operationId": "getUser"
       }
     },
+    "/user/emails": {
+      "get": {
+        "summary": "List email addresses for a user",
+        "operationId": "getUserEmails",
+        "security": {
+          "basic": ["user:email"]
+        }
+      }
+    },
     "/user/repos": {
       "get": {
         "summary": "List repositories that are accessible to the authenticated user.",
@@ -107,10 +116,12 @@
       "get": {
         "summary": "List organizations for the authenticated user",
         "operationId": "getUserOrgs",
-        "security": [
-          "user",
-          "read:org"
-        ]
+        "security": {
+          "oauth2": [
+            "user",
+            "read:org"
+          ]
+        }
       }
     },
     "/orgs/{org}/repos": {
