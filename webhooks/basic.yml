@@ -1,0 +1,11 @@
+---
+info:
+  version: "0.0.0"
+  title: Basic URL
+  description: A basic URL webhook
+operations:
+  get:
+    operation_id: on_url
+    summary: Basic URL
+    parameters: []
+
