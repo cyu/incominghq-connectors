@@ -5,7 +5,7 @@ info:
   description: Slack brings all your communication together in one place.
 operations:
   post:
-    nickname: on_message
+    operationId: on_message
     summary: Outgoing WebHooks
     description: Get data out of Slack in real-time.
     parameters:
