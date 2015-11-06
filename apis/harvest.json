@@ -70,6 +70,12 @@
           "in": "query"
         }]
       }
+    },
+    "/account/who_am_i": {
+      "get": {
+        "summary": "User and account information for current user",
+        "operationId": "whoAmI"
+      }
     }
   }
 }
