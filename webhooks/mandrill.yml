@@ -1,0 +1,123 @@
+---
+info:
+  version: "0.0.0"
+  title: Mandrill
+  description: Mandrill Webhooks
+operations:
+  post:
+    operationId: inboundEmail
+    summary: Process inbound email
+    parameters:
+      - name: payload
+        in: body
+        schema:
+          type: object
+          properties:
+            ts:
+              type: string
+              format: unixTimestamp
+            event:
+              type: string
+            msg:
+              $ref: "#/definitions/Message"
+definitions:
+  Message:
+    type: object
+    properties:
+      raw_msg:
+        type: string
+      headers:
+        $ref: "#/definitions/Headers"
+      text:
+        type: string
+      html:
+        type: string
+      from_email:
+        type: string
+      from_name:
+        type: string
+      to:
+        type: string
+      email:
+        type: string
+      subject:
+        type: string
+      tags:
+        type: string
+      sender:
+        type: string
+      attachments:
+        type: object
+        additionalProperties:
+          $ref: "#/definitions/Attachment"
+      images:
+        type: object
+        additionalProperties:
+          $ref: "#/definitions/Attachment"
+      spam_report:
+        $ref: "#/definitions/SpamReport"
+  Headers:
+    type: object
+    additionalProperties:
+      type: string
+  Attachment:
+    type: object
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      content:
+        type: string
+      base64:
+        type: boolean
+  SpamReport:
+    type: object
+    properties:
+      score:
+        type: number
+        format: float
+      matched_rules:
+        type: array
+        items:
+          $ref: "#/definitions/SpamRule"
+  SpamRule:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      score:
+        type: number
+        format: float
+      spf:
+        type: array
+        items:
+          $ref: "#/definitions/SPFValidationResult"
+      dkim:
+        type: array
+        items:
+          $ref: "#/definitions/DKIMDetail"
+  SPFValidationResult:
+    type: object
+    properties:
+      result:
+        enum:
+          - pass
+          - neutral
+          - fail
+          - softfail
+          - temperror
+          - permerror
+          - none
+      detail:
+        type: string
+  DKIMDetail:
+    type: object
+    properties:
+      signed:
+        type: boolean
+      valid:
+        type: boolean
+
