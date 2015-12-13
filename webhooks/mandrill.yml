@@ -8,19 +8,25 @@ operations:
     operationId: inboundEmail
     summary: Process inbound email
     parameters:
-      - name: payload
-        in: body
+      - name: mandrill_events
+        in: form
         schema:
-          type: object
-          properties:
-            ts:
-              type: string
-              format: unixTimestamp
-            event:
-              type: string
-            msg:
-              $ref: "#/definitions/Message"
+          $ref: "#/definitions/InboundEvents"
 definitions:
+  InboundEvents:
+    type: array
+    items:
+      $ref: "#/definitions/InboundEvent"
+  InboundEvent:
+    type: object
+    properties:
+      ts:
+        type: string
+        format: unixTimestamp
+      event:
+        type: string
+      msg:
+        $ref: "#/definitions/Message"
   Message:
     type: object
     properties:
