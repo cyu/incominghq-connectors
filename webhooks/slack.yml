@@ -11,28 +11,28 @@ operations:
     parameters:
       - name: token
         type: string
-        paramType: form
+        in: form
       - name: team_id
         type: string
-        paramType: form
+        in: form
       - name: channel_id
         type: string
-        paramType: form
+        in: form
       - name: channel_name
         type: string
-        paramType: form
+        in: form
       - name: timestamp
         type: unix-timestamp
-        paramType: form
+        in: form
       - name: user_id
         type: string
-        paramType: form
+        in: form
       - name: user_name
         type: string
-        paramType: form
+        in: form
       - name: text
         type: string
-        paramType: form
+        in: form
       - name: trigger_word
         type: string
-        paramType: form
+        in: form
