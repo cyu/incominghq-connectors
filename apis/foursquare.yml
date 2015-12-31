@@ -1,0 +1,36 @@
+---
+swagger: "2.0"
+info:
+  title: Foursquare
+  version: "2"
+host: api.foursquare.com
+basePath: "/v2"
+schemes:
+  - https
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: "https://foursquare.com/oauth2/authenticate"
+    tokenUrl: "https://foursquare.com/oauth2/access_token"
+security:
+  oauth2: []
+paths:
+  /user/{user_id}:
+    summary: Returns profile information for a given user
+    operationId: getUser
+    parameters:
+      - name: user_id
+        in: path
+        required: true
+      - name: m
+        description: Response style
+        in: query
+        enum:
+          - foursquare
+          - swarm
+      - name: v
+        description: API version
+        in: query
+        default: "20140806"
+
