@@ -17,20 +17,21 @@ security:
   oauth2: []
 paths:
   /user/{user_id}:
-    summary: Returns profile information for a given user
-    operationId: getUser
-    parameters:
-      - name: user_id
-        in: path
-        required: true
-      - name: m
-        description: Response style
-        in: query
-        enum:
-          - foursquare
-          - swarm
-      - name: v
-        description: API version
-        in: query
-        default: "20140806"
+    get:
+      summary: Returns profile information for a given user
+      operationId: getUser
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+        - name: m
+          description: Response style
+          in: query
+          enum:
+            - foursquare
+            - swarm
+        - name: v
+          description: API version
+          in: query
+          default: "20140806"
 
