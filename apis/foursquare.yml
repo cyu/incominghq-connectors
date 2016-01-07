@@ -21,7 +21,7 @@ x-version-parameter:
 security:
   oauth2: []
 paths:
-  /user/{user_id}:
+  /users/{user_id}:
     get:
       summary: Returns profile information for a given user
       operationId: getUser
