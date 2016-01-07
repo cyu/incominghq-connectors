@@ -15,6 +15,9 @@ securityDefinitions:
     name: oauth_token
     authorizationUrl: "https://foursquare.com/oauth2/authenticate"
     tokenUrl: "https://foursquare.com/oauth2/access_token"
+x-version-parameter:
+  name: v
+  version: "20140806"
 security:
   oauth2: []
 paths:
@@ -35,5 +38,4 @@ paths:
         - name: v
           description: API version
           in: query
-          default: "20140806"
 
