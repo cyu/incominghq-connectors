@@ -1,0 +1,29 @@
+---
+info:
+  version: "0.0.0"
+  title: Foursquare
+  description: Get a real-time view into various actions on Foursquare
+operations:
+  post:
+    operationId: on_event
+    summary: Receive an event from Foursquare
+    parameters:
+      - name: checkin
+        type: string
+        in: form
+      - name: like
+        type: string
+        in: form
+      - name: tip
+        type: string
+        in: form
+      - name: photo
+        type: string
+        in: form
+      - name: user
+        type: string
+        in: form
+      - name: secret
+        type: string
+        in: form
+
