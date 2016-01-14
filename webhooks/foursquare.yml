@@ -10,18 +10,23 @@ operations:
     parameters:
       - name: checkin
         type: string
+        format: json
         in: form
       - name: like
         type: string
+        format: json
         in: form
       - name: tip
         type: string
+        format: json
         in: form
       - name: photo
         type: string
+        format: json
         in: form
       - name: user
         type: string
+        format: json
         in: form
       - name: secret
         type: string
