@@ -10,25 +10,194 @@ operations:
     parameters:
       - name: checkin
         type: string
-        format: json
         in: form
+        schema:
+          $ref: "#/definitions/Checkin"
       - name: like
         type: string
-        format: json
         in: form
+        schema:
+          $ref: "#/definitions/Like"
       - name: tip
         type: string
         format: json
         in: form
+        schema:
+          $ref: "#/definitions/Tip"
       - name: photo
         type: string
         format: json
         in: form
+        schema:
+          $ref: "#/definitions/Photo"
       - name: user
         type: string
         format: json
         in: form
+        schema:
+          $ref: "#/definitions/User"
       - name: secret
         type: string
         in: form
+definitions:
+  Checkin:
+    type: object
+    properties:
+      id:
+        type: string
+      createdAt:
+        type: number
+        format: unixTimestamp
+      type:
+        enum:
+          - checkin
+          - about
+          - venueless
+      timeZone:
+        type: string
+      timeZoneOffset:
+        type: number
+      private:
+        type: boolean
+      user:
+        $ref: "#/definitions/User"
+      venue:
+        $ref: "#/definitions/Venue"
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      gender:
+        enum:
+          - male
+          - female
+          - none
+      relationship:
+        enum:
+          - self
+          - friend
+          - pendingMe
+          - pendingThem
+          - followingThem
+      photo:
+        type: string
+        format: url
+      homeCity:
+        type: string
+      bio:
+        type: string
+      superuser:
+        type: number
+      contact:
+        $ref: "#/definitions/Contact"
+  Venue:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      contact:
+        $ref: "#/definitions/Contact"
+      categories:
+        type: array
+        items:
+          $ref: "#/definitions/VenueCategory"
+      verified:
+        type: boolean
+      stats:
+        $ref: "#/definitions/VenueStats"
+  Contact:
+    type: object
+    properties:
+      twitter:
+        type: string
+      phone:
+        type: string
+      formattedPhone:
+        type: string
+      facebook:
+        type: string
+      facebookUsername:
+        type: string
+      facebookName:
+        type: string
+      email:
+        type: string
+  VenueCategory:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      pluralName:
+        type: string
+      shortName:
+        type: string
+      icon:
+        type: string
+        format: url
+      parents:
+        type: array
+        items:
+          - type: string
+      primary:
+        type: boolean
+  VenueStats:
+    type: object
+    properties:
+      checkinsCount:
+        type: number
+      usersCount:
+        type: number
+      tipCount:
+        type: number
+  Like:
+    type: object
+  Tip:
+    type: object
+    properties:
+      id:
+        type: string
+      text:
+        type: string
+      createdAt:
+        type: number
+        format: unixTimestamp
+      status:
+        enum:
+          - todo
+      url:
+        type: string
+        format: url
+      user:
+        $ref: "#/definitions/User"
+      venue:
+        $ref: "#/definitions/Venue"
+  Photo:
+    type: object
+    properties:
+      id:
+        type: string
+      createdAt:
+        type: number
+        format: unixTimestamp
+    prefix:
+      type: string
+    suffix:
+      type: string
+    user:
+      $ref: "#/definitions/User"
+    venue:
+      $ref: "#/definitions/Venue"
+    tip:
+      $ref: "#/definitions/Tip"
+    checkin:
+      $ref: "#/definitions/Checkin"
 
