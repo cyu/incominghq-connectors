@@ -36,15 +36,15 @@
           - name: from
             type: string
             in: query
-            x-date-format: %Y%m%d
+            x-date-format: "%Y%m%d"
           - name: to
             type: string
             in: query
-            x-date-format: %Y%m%d
+            x-date-format: "%Y%m%d"
           - name: updated_since
             type: string
             in: query
-            x-date-format: %Y-%m-%d %H:%M
+            x-date-format: "%Y-%m-%d %H:%M"
           - name: status
             type: string
             in: query
