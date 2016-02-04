@@ -1,0 +1,144 @@
+---
+  swagger: "2.0"
+
+  info:
+    title: Harvest
+    version: "1.0"
+
+  x-base-host: harvestapp.com
+  basePath: "/"
+  schemes:
+    - https
+  produces:
+    - application/json
+    - application/xml
+
+  securityDefinitions:
+    oauth2:
+      type: oauth2
+      flow: accessCode
+      authorizationUrl: /oauth2/authorize
+      tokenUrl: /oauth2/token
+      scopes: {}
+
+  security:
+    oauth2: []
+
+  paths:
+    /invoices:
+      get:
+        summary: List invoices
+        operationId: invoiceList
+        parameters:
+          - name: page
+            type: integer
+            in: query
+          - name: from
+            type: string
+            in: query
+            x-date-format: %Y%m%d
+          - name: to
+            type: string
+            in: query
+            x-date-format: %Y%m%d
+          - name: updated_since
+            type: string
+            in: query
+            x-date-format: %Y-%m-%d %H:%M
+          - name: status
+            type: string
+            in: query
+            enum:
+              - open
+              - partial
+              - draft
+              - paid
+              - unpaid
+              - pastdue
+          - name: client
+            type: integer
+            in: query
+      post:
+        summary: Create a New Invoice
+        operationId: createInvoice
+        parameters:
+          - name: invoice
+            in: body
+            required: true
+            schema: NewInvoice
+    /account/who_am_i:
+      get:
+        summary: User and account information for current user
+        operationId: whoAmI
+
+  definitions:
+    NewInvoice:
+      title: NewInvoice
+      type: object
+      properties:
+        due_at_human_format:
+          type: string
+        client-id:
+          type: integer
+        currency:
+          type: string
+        discount:
+          type: float
+        issued-at:
+          type: string
+          format: date
+        subject:
+          type: string
+        notes:
+          type: string
+        number:
+          type: string
+        kind:
+          type: string
+          enum:
+            - free-form
+            - project
+            - task
+            - people
+            - detailed
+        projects_to_invoice:
+          type: string
+        import_hours:
+          type: string
+          enum:
+            - all
+            - yes
+            - no
+        import_expenses:
+          type: string
+          enum:
+            - all
+            - yes
+            - no
+        expense_summary_type:
+          type: string
+          enum: 
+            - project
+            - people
+            - category
+            - detailed
+        period_start:
+          type: string
+          format: date
+        period_end:
+          type: string
+          format: date
+        expense_period_start:
+          type: string
+          format: date
+        expense_period_end:
+          type: string
+          format: date
+        csv_line_items:
+          type: string
+        tax:
+          type: float
+        tax2:
+          type: float
+        purchase_order:
+          type: string
