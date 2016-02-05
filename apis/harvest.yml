@@ -107,14 +107,14 @@
           type: string
           enum:
             - all
-            - yes
-            - no
+            - "yes"
+            - "no"
         import_expenses:
           type: string
           enum:
             - all
-            - yes
-            - no
+            - "yes"
+            - "no"
         expense_summary_type:
           type: string
           enum: 
