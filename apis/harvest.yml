@@ -70,6 +70,31 @@
       get:
         summary: User and account information for current user
         operationId: whoAmI
+    /contacts:
+      get:
+        summary: Get all contacts
+        operationId: contactList
+        parameters:
+          - name: updated_since
+            type: string
+            in: query
+            x-date-format: "%Y-%m-%d %H:%M"
+    /clients:
+      get:
+        summary: Get all clients
+        operationId: clientList
+    /projects:
+      get:
+        summary: Get all projects
+        operationId: projectList
+    /tasks:
+      get:
+        summary: Get all tasks
+        operationId: taskList
+    /people:
+      get:
+        summary: Get all users
+        operationId: userList
 
   definitions:
     NewInvoice:
