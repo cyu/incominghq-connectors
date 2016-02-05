@@ -78,7 +78,7 @@
       properties:
         due_at_human_format:
           type: string
-        client-id:
+        client_id:
           type: integer
         currency:
           type: string
