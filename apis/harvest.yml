@@ -84,7 +84,7 @@
           type: string
         discount:
           type: float
-        issued-at:
+        issued_at:
           type: string
           format: date
         subject:
