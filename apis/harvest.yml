@@ -65,7 +65,7 @@
           - name: invoice
             in: body
             required: true
-            schema: NewInvoice
+            schema: NewInvoiceEnvelope
     /account/who_am_i:
       get:
         summary: User and account information for current user
@@ -97,6 +97,12 @@
         operationId: userList
 
   definitions:
+    NewInvoiceEnvelope:
+      title: NewInvoiceEnvelope
+      type: object
+      properties:
+        invoice:
+          $ref: "#/definitions/NewInvoice"
     NewInvoice:
       title: NewInvoice
       type: object
