@@ -87,6 +87,14 @@
       get:
         summary: Get all projects
         operationId: projectList
+        parameters:
+          - name: client
+            type: integer
+            in: query
+          - name: updated_since
+            type: string
+            in: query
+            x-date-format: "%Y-%m-%d %H:%M"
     /tasks:
       get:
         summary: Get all tasks
