@@ -38,4 +38,15 @@ paths:
         - name: v
           description: API version
           in: query
+  /venues/managed:
+    get:
+      summary: Get a list of venues the current user manages.
+      operationId: getManagedVenues
+      parameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
 
