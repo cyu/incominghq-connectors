@@ -49,4 +49,7 @@ paths:
         - name: offset
           in: query
           type: integer
+        - name: v
+          description: API version
+          in: query
 
