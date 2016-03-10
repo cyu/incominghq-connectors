@@ -40,7 +40,8 @@
           - name: page
             in: query
     /projects/{projectId}/faults/{faultId}/notices/{noticeId}:
-      summary: Returns a single notice for the given fault
+      get:
+        summary: Returns a single notice for the given fault
         operationId: getNotice
         parameters:
           - name: projectId
