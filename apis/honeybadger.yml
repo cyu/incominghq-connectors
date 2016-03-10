@@ -3,7 +3,7 @@
   info:
     title: Honeybadger
     description: Honeybadger Read API v1
-    version": "1"
+    version: "1"
   host: api.honeybadger.io
   basePath: "/v1"
   schemes:
@@ -19,7 +19,7 @@
         operationId: getFaults
         parameters:
           - name: projectId
-            in": path
+            in: path
             required: true
             type: string
           - name: page
@@ -30,7 +30,7 @@
         operationId: getNotices
         parameters:
           - name: projectId
-            in": path
+            in: path
             required: true
             type: string
           - name: faultId
@@ -45,7 +45,7 @@
         operationId: getNotice
         parameters:
           - name: projectId
-            in": path
+            in: path
             required: true
             type: string
           - name: faultId
