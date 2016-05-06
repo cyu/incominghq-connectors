@@ -3,11 +3,11 @@ info:
   version: "0.0.0"
   title: Slack
   description: Slack brings all your communication together in one place.
-operations:
-  post:
-    operationId: on_message
+webhooks:
+  on_message:
     summary: Outgoing WebHooks
     description: Get data out of Slack in real-time.
+    method: post
     parameters:
       - name: token
         type: string
@@ -36,3 +36,39 @@ operations:
       - name: trigger_word
         type: string
         in: form
+  slash_command:
+    summary: Slash Command
+    description: Handle a Slash Command in Slack
+    method: post
+    parameters:
+      - name: token
+        type: string
+        in: form
+      - name: team_id
+        type: string
+        in: form
+      - name: team_domain
+        type: string
+        in: form
+      - name: channel_id
+        type: string
+        in: form
+      - name: channel_name
+        type: string
+        in: form
+      - name: user_id
+        type: string
+        in: form
+      - name: user_name
+        type: string
+        in: form
+      - name: command
+        type: string
+        in: form
+      - name: text
+        type: string
+        in: form
+      - name: response_url
+        type: string
+        in: form
+
