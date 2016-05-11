@@ -1,0 +1,101 @@
+---
+  swagger: "2.0"
+  info:
+    title: Postmark
+    version: "1.0"
+
+  host: api.postmarkapp.com
+  basePath: "/"
+  schemes:
+    - https
+
+  produces:
+    - application/json
+  consumes:
+    - application/json
+
+  securityDefinitions:
+    server_token:
+      type: apiKey
+      name: X-Postmark-Server-Token
+      in: header
+
+  security:
+    server_token: []
+
+  paths:
+    /email:
+      post:
+        summary: Send a single email
+        operationId: sendEmail
+        parameters:
+          - name: email
+            in: body
+            schema: Email
+
+  definitions:
+    Email:
+      type: object
+      required:
+        - From 
+        - To
+      properties:
+        From:
+          type: string
+        To:
+          type: array
+          items:
+            type: string
+        Cc:
+          type: array
+          items:
+            type: string
+        Bcc:
+          type: array
+          items:
+            type: string
+        Subject:
+          type: string
+        Tag:
+          type: string
+        HtmlBody:
+          type: string
+        TextBody:
+          type: string
+        ReplyTo:
+          type: string
+        Headers:
+          type: array
+          items:
+            $ref: "#/definitions/Header"
+        TrackOpens:
+          type: boolean
+        Attachments:
+          type: array
+          items:
+            $ref: "#/definitions/Attachment"
+    Header:
+      type: object
+      required:
+        - Name
+        - Value
+      properties:
+        Name:
+          type: string
+        Value:
+          type: string
+    Attachment:
+      type: object
+      required:
+        - Name
+        - Content
+      properties:
+        Name:
+          type: string
+        Content:
+          type: string
+        ContentType:
+          type: string
+        ContentID:
+          type: string
+
