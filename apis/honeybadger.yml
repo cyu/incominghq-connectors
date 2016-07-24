@@ -64,4 +64,4 @@
       in: query
 
   security:
-    authToken: []
+    - authToken: []

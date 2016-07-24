@@ -21,7 +21,7 @@
       in: body
 
   security:
-    key: []
+    - key: []
 
   paths:
     /users/info.json:

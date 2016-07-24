@@ -19,7 +19,7 @@ x-version-parameter:
   name: v
   version: "20140806"
 security:
-  oauth2: []
+  - oauth2: []
 paths:
   /users/{user_id}:
     get:
