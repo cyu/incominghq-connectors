@@ -21,7 +21,7 @@
       in: header
 
   security:
-    server_token: []
+    - server_token: []
 
   paths:
     /email:

@@ -22,7 +22,7 @@
       scopes: {}
 
   security:
-    oauth2: []
+    - oauth2: []
 
   paths:
     /invoices:
