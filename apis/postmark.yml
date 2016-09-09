@@ -31,7 +31,8 @@
         parameters:
           - name: email
             in: body
-            schema: Email
+            schema:
+              $ref: "#/definitions/Email"
 
   definitions:
     Email:
